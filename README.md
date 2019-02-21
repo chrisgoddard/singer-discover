@@ -23,7 +23,7 @@ First select which streams to include
   ○ stream_three
 ```
 
-Hit enter. Then select the fields within each stream to include. Hit a to toggle select all. Automatically included fields are unselectable and annotated with (automatic)
+Hit enter. Then select the fields within each stream to include. Hit `a` to toggle select all. Automatically included fields are unselectable and annotated with (automatic)
 
 ```
 ? Select fields for stream: `stream_one` (<up>, <down> to move, <space> to select, <a> to toggle, <i> to invert)
