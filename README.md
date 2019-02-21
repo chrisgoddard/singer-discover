@@ -1,6 +1,6 @@
-# singer-discover
+# Singer Discover Utility
 
-Simply command line utility to take a Singer-spec catalog and select which streams and fields to include. Fields with "automatic" inclusion are included... er.. automatically.
+Simply command line utility to take a [Singer](https://www.singer.io/)-specification JSON catalog file and select which streams and fields to include. Fields with "automatic" inclusion are included... er.. automatically.
 
 ## Installation
 
