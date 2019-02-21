@@ -5,7 +5,7 @@ Simply command line utility to take a Singer-spec catalog and select which strea
 ## Installation
 
 ```
-pip install https://github.com/chris-goddard/singer-discover/zipball/master
+pip install https://github.com/chrisgoddard/singer-discover/archive/master.zip
 ```
 
 ## Use
