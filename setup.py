@@ -11,7 +11,7 @@ setup(
     classifiers=["Programming Language :: Python :: 3 :: Only"],
     py_modules=["singer_discover"],
     install_requires=[
-        "singer-python==5.0.12",
+        "singer-python==5.4.1",
         "PyInquirer==1.0.3"
     ],
     entry_points="""
