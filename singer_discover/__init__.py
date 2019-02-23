@@ -1,7 +1,15 @@
+import os
+import sys
 import argparse
 import json
 from singer import metadata
+import tty
+
 from PyInquirer import prompt
+# import questionary
+# from prompt_toolkit.input import create_input, set_default_input
+# from prompt_toolkit.input.defaults import create_pipe_input
+# from prompt_toolkit.input import Input
 
 
 def breadcrumb_name(breadcrumb):
@@ -13,12 +21,23 @@ def breadcrumb_name(breadcrumb):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--catalog', type=str, required=True)
+    parser.add_argument('--output', '-o', type=str, required=True)
 
-    args = parser.parse_args()
+    if sys.stdin.isatty():
+        parser.add_argument('--input', '-i', type=str, required=True)
 
-    with open(args.catalog) as f:
-        catalog = json.load(f)
+        args = parser.parse_args()
+
+        with open(args.input) as f:
+            catalog = json.load(f)
+
+    else:
+
+        args = parser.parse_args()
+
+        catalog = json.loads(sys.stdin.read())
+
+        sys.stdin = sys.stdout
 
     select_streams = {
         'type': 'checkbox',
@@ -101,8 +120,9 @@ def main():
 
             catalog['streams'][i]['metadata'] = metadata.to_list(mdata)
 
-    with open(args.catalog, 'w') as f:
+    with open(args.output, 'w') as f:
         json.dump(catalog, f, indent=2)
+
 
 if __name__ == '__main__':
     main()
