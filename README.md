@@ -12,7 +12,7 @@ pip install https://github.com/chrisgoddard/singer-discover/archive/master.zip
 
 Two ways of using this script.
 
-First takes two filenames - input (--input, -i) and output (--output, -o). These can be the same
+First takes two filenames: input (--input, -i) and output (--output, -o). These can be the same
 
 ```
 singer-discover --input catalog.json --output catalog.json
