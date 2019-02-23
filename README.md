@@ -21,7 +21,7 @@ singer-discover --input catalog.json --output catalog.json
 The second accepts the piped output of a tap in discover mode, making it a little more idiomatic with the rest of the Singer ecosystem.
 
 ```
-tap-example --config config.json --discover | singer-discover --o catalog.json
+tap-example --config config.json --discover | singer-discover -o catalog.json
 ```
 
 _NOTE: This uses a bit of a hack to allow the interactive interface to appear after the script has accepted input from stdin. It worked for me, but please let me know if you see errors. First method should work for all._
