@@ -2,15 +2,12 @@ import os
 import sys
 import argparse
 import json
-from singer import metadata
+from singer import metadata, get_logger
 import tty
 
 from PyInquirer import prompt
-# import questionary
-# from prompt_toolkit.input import create_input, set_default_input
-# from prompt_toolkit.input.defaults import create_pipe_input
-# from prompt_toolkit.input import Input
 
+logger = get_logger().getChild('singer-discover')
 
 def breadcrumb_name(breadcrumb):
     name = ".".join(breadcrumb)
@@ -38,6 +35,8 @@ def main():
         catalog = json.loads(sys.stdin.read())
 
         sys.stdin = sys.stdout
+
+    logger.info("Catalog configuration starting...")
 
     select_streams = {
         'type': 'checkbox',
@@ -119,6 +118,8 @@ def main():
                             mdata, breadcrumb, 'selected', False)
 
             catalog['streams'][i]['metadata'] = metadata.to_list(mdata)
+
+    logger.info("Catalog configuration saved.")
 
     with open(args.output, 'w') as f:
         json.dump(catalog, f, indent=2)
