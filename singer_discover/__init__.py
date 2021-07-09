@@ -89,6 +89,12 @@ def main():
                         'disabled': disabled
                     })
 
+            # Order fields alphabetically, skip if error
+            try:
+                fields = sorted(fields, key=lambda field: field['name'])
+            except KeyError:
+                pass
+
             stream_options = {
                 'type': 'checkbox',
                 'message': 'Select fields from stream: `{}`'.format(
